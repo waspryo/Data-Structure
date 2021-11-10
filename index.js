@@ -108,6 +108,10 @@ class LinkedList {
   }
 
   // Clear list
+  clearList() {
+    this.head = null;
+    this.size = 0;
+  }
 
   // Print list data
   printListData() {
@@ -117,6 +121,14 @@ class LinkedList {
       current = current.next;
     }
   }
+
+  // Remove first
+
+  // Remove last
+
+  // Get first
+
+  // Get last
 }
 
 const ll = new LinkedList();
@@ -125,7 +137,8 @@ ll.insertFirst(100);
 ll.insertFirst(200);
 ll.insertFirst(300);
 ll.insertLast(400);
-ll.removeAt(3);
+ll.clearList();
 
 ll.printListData();
 // ll.getAt(0);
+// ll.removeAt(3);
