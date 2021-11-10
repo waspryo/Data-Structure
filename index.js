@@ -137,7 +137,7 @@ ll.insertFirst(100);
 ll.insertFirst(200);
 ll.insertFirst(300);
 ll.insertLast(400);
-ll.clearList();
+// ll.clearList();
 
 ll.printListData();
 // ll.getAt(0);
