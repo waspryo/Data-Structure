@@ -101,7 +101,7 @@ class BST {
       // capture root node value
       result.push(node.value);
       // if right child exists, go right again
-      if (node.right) traverse(node.left);
+      if (node.right) traverse(node.right);
     };
     traverse(this.root);
     return result;
@@ -119,7 +119,7 @@ class BST {
       // if left child exists, go left again
       if (node.left) traverse(node.left);
       // if right child exists, go right again
-      if (node.right) traverse(node.left);
+      if (node.right) traverse(node.right);
     };
     traverse(this.root);
     return result;
@@ -135,7 +135,7 @@ class BST {
       // if left child exists, go left again
       if (node.left) traverse(node.left);
       // if right child exists, go right again
-      if (node.right) traverse(node.left);
+      if (node.right) traverse(node.right);
       // capture root node value
       result.push(node.value);
     };
@@ -155,7 +155,7 @@ class BST {
 
     while (queue.length) {
       let currentNode = queue.shift();
-      result.push(currentNode);
+      result.push(currentNode.value);
 
       if (currentNode.left) {
         queue.push(currentNode.left);
@@ -189,3 +189,7 @@ console.log(bst.dfsInOrder());
 console.log(bst.dfsPreOrder());
 // post-order: 2, 12, 3, 28, 39, 36, 15
 console.log(bst.dfsPostOrder());
+
+// BFS!!
+// 15, 3, 36, 2, 12, 28, 39
+console.log(bst.bfs());
