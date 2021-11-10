@@ -10,7 +10,11 @@ class LinkedList {
     this.head = null
     this.size = 0
   }
+
   // Insert first node
+  insertFirst(data) {
+    this.head = new Node(data, this.head)
+  }
 
   // Insert last node
 
@@ -24,5 +28,10 @@ class LinkedList {
 
   // Print list data
 
-
 }
+
+const ll = new LinkedList()
+
+ll.insertFirst(100)
+ll.insertFirst(200)
+console.log(ll)
