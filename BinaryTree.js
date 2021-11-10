@@ -9,7 +9,7 @@ class Node {
 class BST {
   constructor(value) {
     this.root = new Node(value);
-    this.count = 0;
+    this.count = 1;
   }
 
   size() {
@@ -103,7 +103,7 @@ class BST {
       // if right child exists, go right again
       if (node.right) traverse(node.left);
     };
-
+    traverse(this.root);
     return result;
   }
 
@@ -121,12 +121,13 @@ class BST {
       // if right child exists, go right again
       if (node.right) traverse(node.left);
     };
+    traverse(this.root);
     return result;
   }
 
   // post-order
   // left, left, root
-  // 15, 3, 2, 12, 36, 28, 39
+  // 2, 12, 3, 28, 39, 36, 15
   dfsPostOrder() {
     let result = [];
 
@@ -138,6 +139,7 @@ class BST {
       // capture root node value
       result.push(node.value);
     };
+    traverse(this.root);
     return result;
   }
 
@@ -145,5 +147,45 @@ class BST {
 
   // use a queue!
   //
-  bfs() {}
+  bfs() {
+    let result = [];
+    let queue = [];
+
+    queue.push(this.root);
+
+    while (queue.length) {
+      let currentNode = queue.shift();
+      result.push(currentNode);
+
+      if (currentNode.left) {
+        queue.push(currentNode.left);
+      }
+      if (currentNode.right) {
+        queue.push(currentNode.right);
+      }
+    }
+
+    return result;
+  }
 }
+
+const bst = new BST(15);
+bst.insert(3);
+bst.insert(36);
+bst.insert(2);
+bst.insert(12);
+bst.insert(28);
+bst.insert(39);
+
+console.log(bst.size());
+console.log(bst.min());
+console.log(bst.max());
+console.log(bst.contains(2));
+
+// DFS!!
+// in-order: 2, 3, 12, 15, 28, 36, 39
+console.log(bst.dfsInOrder());
+// pre-order: 15, 3, 2, 12, 36, 28, 39
+console.log(bst.dfsPreOrder());
+// post-order: 2, 12, 3, 28, 39, 36, 15
+console.log(bst.dfsPostOrder());
