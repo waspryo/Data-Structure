@@ -87,17 +87,63 @@ class BST {
     return false;
   }
 
-  // depth first search
+  // depth first search - branch by branch
 
   // in-order
-  dfsInOrder() {}
+  // left, root, right
+  // 2, 3, 12, 15, 28, 36, 39
+  dfsInOrder() {
+    let result = [];
+
+    const traverse = (node) => {
+      // if left child exists, go left again
+      if (node.left) traverse(node.left);
+      // capture root node value
+      result.push(node.value);
+      // if right child exists, go right again
+      if (node.right) traverse(node.left);
+    };
+
+    return result;
+  }
 
   // pre-order
-  dfsPreOrder() {}
+  // root, left, right
+  // 15, 3, 2, 12, 36, 28, 39
+  dfsPreOrder() {
+    let result = [];
+
+    const traverse = (node) => {
+      // capture root node value
+      result.push(node.value);
+      // if left child exists, go left again
+      if (node.left) traverse(node.left);
+      // if right child exists, go right again
+      if (node.right) traverse(node.left);
+    };
+    return result;
+  }
 
   // post-order
-  dfsPostOrder() {}
+  // left, left, root
+  // 15, 3, 2, 12, 36, 28, 39
+  dfsPostOrder() {
+    let result = [];
 
-  // breadth first search
-  dfs() {}
+    const traverse = (node) => {
+      // if left child exists, go left again
+      if (node.left) traverse(node.left);
+      // if right child exists, go right again
+      if (node.right) traverse(node.left);
+      // capture root node value
+      result.push(node.value);
+    };
+    return result;
+  }
+
+  // breadth first search - level by level
+
+  // use a queue!
+  //
+  bfs() {}
 }
