@@ -27,6 +27,13 @@ class LinkedList {
   // Clear list
 
   // Print list data
+  printListData() {
+    let current = this.head
+    while(current) {
+      console.log(current.data)
+      current = current.next
+    }
+  }
 
 }
 
@@ -34,4 +41,6 @@ const ll = new LinkedList()
 
 ll.insertFirst(100)
 ll.insertFirst(200)
-console.log(ll)
+ll.insertFirst(300)
+
+ll.printListData()
